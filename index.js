@@ -1,3 +1,8 @@
+function getCurrentTime() {
+    const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false});
+    document.getElementById("time").textContent = currentTime
+}
+setInterval(getCurrentTime, 1000)
 const authorNameHeaderEl = document.getElementById("image-author")
 
 fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature")
