@@ -16,3 +16,7 @@
  * https://css-tricks.com/perfect-full-page-background-image/#awesome-easy-progressive-css3-way)
  */
 
+fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature")
+    .then(response => response.json())
+    .then(data => document.body.style.backgroundImage = `url(${data.urls.full})`)
+
