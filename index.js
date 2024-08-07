@@ -22,7 +22,18 @@ fetch("https://api.coingecko.com/api/v3/coins/bitcoin")
         }
         return response.json()
     })
-    .then(data => console.log(data))
+    .then(data => {
+        document.getElementById("crypto-top").innerHTML = `
+        <img src=${data.image.small} />
+        <span>${data.name}</span>
+    `
+        document.getElementById("crypto-prices").innerHTML = `
+            <p>🎯: R${data.market_data.current_price.zar.toLocaleString()}</p>
+            <p>👆: R${data.market_data.high_24h.zar.toLocaleString()}</p>
+            <p>👇: R${data.market_data.low_24h.zar.toLocaleString()}</p>
+        `
+    }
+    )
     .catch(err => {
         console.error(`Error fetching coin data: ${err}`)
         }
